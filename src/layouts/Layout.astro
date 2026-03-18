@@ -34,11 +34,10 @@
 					</div>
 				</div>
 			</section>
-
+<!-------------------- About ----------------------->
 			<section id="about" class="about-section">
 				<div class="container">
-					<h2 class="bg-title">About<span> Me</span></h2>
-
+				<h2 class="bg-title">About<span> Me</span></h2>
 					<div class="about-grid">
 						<div class="about-info">
 							<h3>I'm Yossawin Kasiphongphaisan</h3>
@@ -53,16 +52,14 @@
 							<img src="/img/Yossawin.png" alt="Yossawin">
 						</div>
 					</div>
-
-					<div class="skills-box">
-						<div class="skills-tabs">
-							<button class="tab-btn active">Technical Skill</button>
-							<button class="tab-btn inactive">Professional Strengths</button>
-							<button class="tab-btn inactive">ADDITIONAL SKILL</button>
-						</div>
-						
+          <!-------------------- Skill ----------------------->
+					<div class="skills-tabs">
+						<button class="tab-btn active" data-category="technical">Technical Skill</button>
+						<button class="tab-btn inactive" data-category="professional">Professional Strengths</button>
+						<button class="tab-btn inactive" data-category="additional">ADDITIONAL SKILL</button>
+					</div>
 						<div class="skills-content">
-							<div class="skills-grid">
+							<div class="skills-grid" id="skills-grid-container">
 								<div class="skill-card">
 									<img src="/img/unity.png" alt="Unity">
 									<span>Unity (Intermediate-Advanced)</span>
@@ -104,12 +101,60 @@
 					</div>
 				</div>
 			</section>
+<!-------------------- Work ----------------------->
+		<section id="work" class="work-section">
+      <div class="container">
+        <h2 class="bg-title">My<span>work</span></h2>
+        <div class="work-container">
+          <div class="project-tabs">
+            <div class="project-item active" data-project="project1">
+                <img src="/img/IMS.png" alt="I Must Survive">
+                <div class="project-mini-desc">
+                <strong>I must survive</strong>
+                <span>( 3D Third-Person Zombie Stealth )</span>
+                </div>
+            </div>
+            <div class="project-item" data-project="project2">
+              <img src="/img/IMS.png" alt="Verse of Cursed">
+              <div class="project-mini-desc">
+              <strong>Aenalia</strong>
+              <span> ( The Foundation Desktop Application For EN-Card (NFT) )</span>
+              </div>
+            </div>
+            <div class="project-item" data-project="project3">
+              <img src="/img/IMS.png" alt="NeonRush">
+              <div class="project-mini-desc">
+              <strong> Verse of Cursed</strong>
+              <span> ( BU GAME ON! final pitching round )</span>
+              </div>
+            </div>
+          </div>
+        <!-------------------- WorkDetails ----------------------->
+          <div class="work-details-box">
+            <div id="project-content">
+              <p class="project-story">
+                In a world where human civilization has collapsed due to a zombie outbreak, a 19-year-old girl who grew up in a small shelter headed by her uncle. One day, her shelter was robbed and killed by people from other groups to steal supplies. She was the only survivor and found clues of a government shelter behind the walls, a shelter where survivors still lived as before the zombie outbreak. She wanted to go there, so she had to travel across dangerous cities to get to the shelter behind the high walls. Along the way, she encountered various types of zombies, as well as groups of surviving humans.
+              </p>
+              <div class="responsibilities">
+              <strong>My Responsibilities:</strong>
+              <ul>
+                <li>Planned the entire development roadmap, focusing on core gameplay and story progression first.</li>
+                <li>Organized and tracked every task—from coding the character system to creating cutscenes—to meet deadlines.</li>
+                <li>Create the game system that is related to the player, the character code, the basic system, and the object interaction system.</li>
+                <li>Make animations, cutscenes, and various objects to create scenes in the game.</li>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 		</main>
 	</body>
 </html>
-
+<!-------------------- CSS ----------------------->
 	<style is:global>
-  /* 1. Global Setup */
+
   html {
     scroll-behavior: smooth;
   }
@@ -117,41 +162,42 @@
   body {
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle at top right, #3d3d3d, #000); /* ไล่สีพื้นหลังมืดๆ */
+    background: radial-gradient(circle at top right, #3d3d3d, #000);
     color: white;
     font-family: 'Inter', sans-serif;
   }
-
-  /* 2. Navbar - กึ่งกลางและสีชมพูตามรูป */
+  /* ------------------------------ Navbar --------------------------- */
   .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 60px 0;
-    z-index: 100;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
   }
   .navbar ul {
-    display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		justify-items: center;
+    display: flex;
     list-style: none;
-    gap: 60px;
-		padding: 0;
-		margin: 0;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
   }
   .navbar a {
     text-decoration: none;
-    color: #ff99cc; 
+    color: #ff99cc;
     font-weight: 500;
     transition: 0.5s;
   }
   .navbar a:hover { color: white; }
-
-  /* 3. Hero Section (Home) */
+  /* --------------------------- Home ----------------------------------*/
   .hero-section {
-    height: 100vh;
+    height: 120vh;
     display: flex;
     align-items: center;
 		justify-items: center;
@@ -161,83 +207,96 @@
   .title { font-size: 3.5rem; margin-bottom: 10px; }
   .title .dim { color: #888; font-weight: 300; }
   .subtitle { color: #b084ff; font-size: 1.2rem; margin: 0;}
-
-  /* 4. About Section  */
-
+  /*  ---------------------- About Section ----------------------------- */
   .about-section {
-    min-height: 100vh;
+    min-height: 150vh;
     padding: 100px 10%;
     position: relative;
   }
+  .bg-title {
+    font-size: 3rem;
+    text-align: center;
+    color: #3b3b3b; 
+    margin-bottom: 0;
+		margin-top: 0;
+  }
+  .bg-title span { color: #d4af37; }
+  
 	.about-grid{
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: row;
 		align-items: center;
-		justify-content: center;
-		margin-top: 50px;
-		margin-bottom: 50px;
-	}
+    margin: 5% 10% 4% 10%;
+    gap: 10%;
+  }
 	.about-info{
-		padding: 50px;
+    flex-grow: 2;
 		h3
 		{
 			font-size: 3em;
 			font-family: cursive;
 			margin: 0;
 		}
+    p
+    {
+      font-size: 1.25em;
+
+    }
 		}
-  .bg-title {
-    font-size: 4rem;
-    text-align: center;
-    color: #3b3b3b; 
-    margin-bottom: 20px;
-		margin-top: 0;
-  }
-  .bg-title span { color: #d4af37; } /* คำว่า me สีทองจางๆ */
+  .about-image {
+    flex-grow: 1;
+		text-align: center;
 
-  .about-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-  .about-image { 
-		text-align: center; 
-	}
-  .about-image img {
-    width: 300px; 
+    img {
+    width: 300px;
     filter: drop-shadow(0 0 30px rgba(248, 247, 247, 0.1)) contrast(150%);
+    }
   }
-
-  /* 5. Skills Grid (แผง 9 ช่อง) */
-  .skills-box {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+  /* ----------------------------- Skills Grid ------------------------------*/
   .skills-tabs {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 15px;
+    justify-content: center;
+    justify-items:center ;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width:1000px;
+    margin: 0.5em auto;
   }
   .tab-btn {
     flex: 1;
-    padding: 12px;
+    width: auto;
+    padding: 15px 5px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
   }
-  .tab-btn.active { background: white; color: black; }
-  .tab-btn.inactive { background: #000000; color: white; border: 1px solid #444; }
+  .tab-btn.active { 
+    background: rgb(255, 254, 254); 
+    color: black; 
+    transform: translateY(10px);
+    transition: all 0.2s;
+  }
+  .tab-btn.inactive { background: #000000; color: white; border: 1px solid #6d6c6c; }
+  .skills-content {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
   }
   .skill-card {
-    background: #b8b5b5; /* สีเทาตามรูป */
+    background: #ececec;
     height: 110px;
     border-radius: 12px;
     display: flex;
@@ -245,31 +304,286 @@
     justify-content: center;
     align-items: center;
     color: #222;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-align: center;
     padding: 10px;
   }
-  .skill-card img { width: 35px; margin-bottom: 10px; opacity: 0.8; }
-
-	@media (max-width: 768px) {
-
-
-
-		.bg-title  {
-			font-size: 3em;
-		}
-		.about-grid{
-			grid-template-columns: 1fr;
-			
-			.about-info{
-				order: 2;
-				font-size: 60%;
-			}
-			.about-image{	order: 1}
-			.about-image img{width: 50%;}
-		}
-		
-		
+	.skill-card:hover{
+		background-color: #ffffff;
+    img{
+      opacity: 1;
+    }
 	}
+  .skill-card img { width: 40px; margin-bottom: 10px; opacity: 0.7; }
+	/* ------------------------------------- My Work Section ------------------------------------ */
+.work-section {
+  min-height: 100vh;
+  padding: 100px 15%;
+  position: relative;
+}
+/* ----------------------------- PJ tab-------------------------- */
+.project-tabs {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+	overflow-x: visible;
+  overflow-y: visible;
+  margin-top: 2%;
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.project-item {
+  background: #000000;
+  border-radius: 15px ;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.project-item.active {
+  background: #f5f5f5;
+  opacity: 1;
+  flex-grow: 1;
+  transform: translateY(-10px);
+  transition: all 0.5s;
+  strong{
+    color: #000;
+  }
+  span{
+    display: block;
+    color: #000;
+  }
+  .project-mini-desc{
+  justify-items:self-start;
+  }
+}
+.project-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  display: block;
+  text-transform: show;
+}
+.project-mini-desc {
+  display: flex;
+  color: #ffffff;
+  font-size: 0.6rem;
+  line-height: 1.2;
+  align-items: center;
+  justify-content: center;
+  gap: auto;
+  flex-wrap: wrap;
+  padding: 2%;
+}
+.project-mini-desc strong { 
+  display: block; 
+  font-size: 1.4rem; 
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+}
+.project-mini-desc span { 
+  display: none; 
+  font-size: 1rem; 
+  font-family: 'Times New Roman', Times, serif;
+}
+.work-details-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  color: #222;
+  min-height: 300px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+	z-index: 2;
+  
+}
+.project-story {
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+.responsibilities strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+.responsibilities ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+.responsibilities li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+/* --------------------------    MEdia    -------------------------- */
+
+@media (max-width: 768px) {
+  .skills-tabs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .tab-btn {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+  .bg-title  {
+    font-size: 3em;
+  }
+  .about-grid{
+    gap: 10;
+    flex-wrap: wrap;
+  }
+  .about-info{
+      font-size: 70%;
+  }
+  .about-image img{width: 70%;}
+  
+  .tab-btn.active { 
+    transform: translateY(0px);
+  }
+
+  .project-item { width: 180px; flex-shrink: 0; }
+  .work-details-box { border-radius: 20px; padding: 20px; }
+  
+  .project-tabs {
+    justify-content: center;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 20px 15px;
+    width: 100%;
+    
+    -webkit-overflow-scrolling: touch;
+  }
+  .project-item {
+    flex: 1em;
+    min-width: unset;
+    max-width: unset;
+    height: 50%;
+  }
+  .project-item.active {
+    transform: translateY(-5px);
+    span{
+    display: none;
+    color: #000;
+  }
+  }
+  .project-mini-desc{
+  justify-items:self-start;
+  }
+  .project-item img {
+    height: 50%;
+  }
+  .project-mini-desc {
+    padding: 8px;
+    font-size: 0.6rem;
+  }
+  .project-mini-desc strong {
+    font-size: 0.75rem;
+  }
+}
 </style>
+
+<!-------------------- Java ----------------------->
+<script is:inline>
+		const skillsData = {
+  technical: [
+    { name: "Unity (Intermediate-Advanced)", img: "/img/unity.png" },
+    { name: "Blender (Intermediate-Advanced)", img: "/img/blender.png" },
+    { name: "Unreal Engine (Intermediate)", img: "/img/unreal.png" },
+    { name: "C# (Intermediate)", img: "/img/csharp.png" },
+    { name: "HTML5/CSS (Intermediate)", img: "/img/html5.png" },
+    { name: "GitHub (Intermediate)", img: "/img/github.png" },
+    { name: "Maya (Intermediate)", img: "/img/maya.png" },
+    { name: "Figma (Intermediate)", img: "/img/figma.png" },
+    { name: "-------", img: "/img/unity.png" }
+  ],
+  professional: [
+    { name: "Project Management", img: "/img/dot.png" },
+    { name: "Game Design", img: "/img/dot.png" },
+    { name: "Problem Solving", img: "/img/dot.png" },
+    { name: "Team Collaboration", img: "/img/dot.png" },
+    { name: "Debugging", img: "/img/dot.png" },
+    { name: "Fast Learner", img: "/img/dot.png" },
+  ],
+  additional: [
+    { name: "Video Editing", img: "/img/dot.png" },
+    { name: "Photography", img: "/img/dot.png" },
+    { name: "Stock Trading", img: "/img/dot.png" },
+  ]
+};
+
+const skillButtons = document.querySelectorAll('.tab-btn');
+const gridContainer = document.getElementById('skills-grid-container');
+
+function renderSkills(category) {
+  const skills = skillsData[category] || [];
+  gridContainer.innerHTML = skills.map(skill => `
+    <div class="skill-card">
+      <img src="${skill.img}" alt="${skill.name}">
+      <span>${skill.name}</span>
+    </div>
+  `).join('');
+}
+
+renderSkills('technical');
+
+skillButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    skillButtons.forEach(b => {
+      b.classList.remove('active');
+      b.classList.add('inactive');
+    });
+    btn.classList.add('active');
+    btn.classList.remove('inactive');
+
+    const category = btn.getAttribute('data-category');
+    renderSkills(category);
+  });
+});
+
+
+  const projectData = {
+    project1: {
+      story: "In a world where human civilization has collapsed due to a zombie outbreak, a 19-year-old girl who grew up in a small shelter headed by her uncle. One day, her shelter was robbed and killed by people from other groups to steal supplies. She was the only survivor and found clues of a government shelter behind the walls, a shelter where survivors still lived as before the zombie outbreak. She wanted to go there, so she had to travel across dangerous cities to get to the shelter behind the high walls. Along the way, she encountered various types of zombies, as well as groups of surviving humans.",
+      tasks: [
+        "Planned the entire development roadmap, focusing on core gameplay and story progression first.",
+        "Organized and tracked every task—from coding the character system to creating cutscenes—to meet deadlines.",
+        "Create the game system that is related to the player, the character code, the basic system, and the object interaction system.",
+        "Make animations, cutscenes, and various objects to create scenes in the game."
+      ]
+    },
+    project2: {
+      story: "Aenalia is the limitless and infinite universe formed by a network of unique interconnected virtual worlds known as theMetaverse Spaces. This universe contributes by Creators/Artists through Unreal Engine, a tool that loves by creators around the world. And comes with services that will allow you, me, and others to own the spaces as NFTs (Create and Own any dreamy place you dream), including services that will keep us all connected, express ourselves, create activities, and other possibilities through those spaces. Home and Community space on Metaverse.",
+      tasks: [
+        "Make a map of this project with the environment inside, including animation within the work.",
+        "Create 3D model works for the work of an artist and arrange the composition in the scene for beauty and realism.",
+      ]
+    },
+    project3: {
+      story: "In this game, players can transform into various toys to explore a vast and exciting world of living toys. Players can use the unique abilities of each toy to overcome various obstacles on their adventure.",
+      tasks: [
+        "Create 3D model assets for the scence.",
+        "Disign and create 3D Model character in game.",
+      ]
+    }
+  };
+
+  const items = document.querySelectorAll('.project-item');
+  const storyText = document.querySelector('.project-story');
+  const taskList = document.querySelector('.responsibilities ul');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      const id = item.getAttribute('data-project');
+      const data = projectData[id];
+
+      storyText.innerText = data.story;
+      taskList.innerHTML = data.tasks.map(task => `<li>${task}</li>`).join('');
+    });
+  });
+</script>
