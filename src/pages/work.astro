@@ -5,6 +5,7 @@ const projects = [
     title: "I Must Survive",
     subtitle: "3D Third-Person Zombie Stealth",
     image: "/MyFolioWebpage/img/IMS.png",
+    link: "https://ใส่ลิงก์ของคุณที่นี่.com/ims", // <--- เพิ่มลิงก์ตรงนี้
     story: "In a world where human civilization has collapsed due to a zombie outbreak, a 19-year-old girl who grew up in a small shelter headed by her uncle. One day, her shelter was robbed and killed by people from other groups to steal supplies. She was the only survivor and found clues of a government shelter behind the walls, a shelter where survivors still lived as before the zombie outbreak.",
     tasks: [
       "Planned the entire development roadmap, focusing on core gameplay and story progression first.",
@@ -17,6 +18,7 @@ const projects = [
     title: "Aenalia",
     subtitle: "The Foundation Desktop Application For EN-Card (NFT)",
     image: "/MyFolioWebpage/img/Anelia.png",
+    link: "https://ใส่ลิงก์ของคุณที่นี่.com/aenalia", // <--- เพิ่มลิงก์ตรงนี้
     story: "Aenalia is the limitless and infinite universe formed by a network of unique interconnected virtual worlds known as the Metaverse Spaces. This universe contributes by Creators/Artists through Unreal Engine, a tool that loves by creators around the world.",
     tasks: [
       "Make a map of this project with the environment inside, including animation within the work.",
@@ -27,6 +29,7 @@ const projects = [
     title: "Verse of Cursed",
     subtitle: "BU GAME ON! final pitching round",
     image: "/MyFolioWebpage/img/Verse.png", 
+    link: "https://ใส่ลิงก์ของคุณที่นี่.com/verse", // <--- เพิ่มลิงก์ตรงนี้
     story: "In this game, players can transform into various toys to explore a vast and exciting world of living toys. Players can use the unique abilities of each toy to overcome various obstacles on their adventure.",
     tasks: [
       "Create 3D model assets for the scence.",
@@ -50,14 +53,20 @@ const projects = [
             
             <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:-translate-y-2 border border-white/5 bg-black">
               
-              <div class="relative aspect-video overflow-hidden">
+              {/* เปลี่ยนจาก div เป็น a tag ตรงนี้ครับ */}
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="relative aspect-video overflow-hidden block cursor-pointer"
+              >
                 <img 
                   src={project.image} 
                   alt={project.title} 
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              </div>
+              </a>
 
               <div class="bg-[#1a1a1a] p-5 md:p-8 border-t border-white/5">
                 <h3 class="nav-text text-2xl md:text-4xl font-black uppercase tracking-tight m-0">
